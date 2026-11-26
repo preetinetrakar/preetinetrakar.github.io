@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Preeti Netrakar — ECE student exploring AI/ML, data analytics and UI/UX design.">
+<title>Preeti Netrakar — Portfolio</title>
+<style>
+:root{--paper:#e9e6db;--ink:#191817;--muted:#6d6a61;--accent:#c9ff62}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 6vw;border-bottom:1px solid #bdb9ad;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+nav{display:flex;gap:22px}a{color:inherit;text-decoration:none}nav a:hover{text-decoration:underline;text-underline-offset:5px}
+main{max-width:1200px;margin:auto}.hero{min-height:610px;padding:8vw 6vw 6vw;display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:center;position:relative;overflow:hidden}
+.kicker{font: bold 12px monospace;letter-spacing:.12em;text-transform:uppercase}.hero h1{font-size:clamp(64px,12vw,150px);line-height:.82;letter-spacing:-.09em;margin:28px 0 24px;text-transform:uppercase}
+.hero h1 span{display:block}.hero p{font:16px/1.6 monospace;max-width:510px}.stamp{border:2px solid var(--ink);padding:18px 22px;transform:rotate(-7deg);font: bold clamp(18px,3vw,30px) monospace;display:inline-block;background:var(--paper);box-shadow:7px 7px 0 var(--ink);margin:35px 0 10px}
+.portrait{height:390px;background:#d2cfc4;display:grid;place-items:center;position:relative;filter:grayscale(1);border:1px solid #aaa69b}
+.portrait:before{content:"PN";font: bold 110px Georgia,serif;color:#77736a}.portrait small{position:absolute;bottom:18px;font:11px monospace;letter-spacing:.15em}
+.section{padding:85px 6vw;border-top:1px solid #bdb9ad}.section-title{font: bold clamp(30px,5vw,58px) Georgia,serif;letter-spacing:-.04em;text-transform:uppercase;margin:0 0 36px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}.about-grid p{font:17px/1.7 monospace;margin:0;max-width:650px}.tag{display:inline-block;border:1px solid var(--ink);padding:8px 12px;margin:5px 5px 5px 0;font:12px monospace;text-transform:uppercase}
+.projects{display:grid;grid-template-columns:1fr 1fr;gap:18px}.card{border:1.5px solid var(--ink);padding:25px;min-height:230px;transition:transform .3s,background .3s;position:relative}.card:hover{transform:translateY(-8px) rotate(-1deg);background:#f1eee4}.num{font:12px monospace;color:var(--muted)}.card h3{font: bold 28px Georgia,serif;margin:30px 0 12px}.card p{font:14px/1.6 monospace;color:#4d4a43}.arrow{position:absolute;right:22px;top:18px;font-size:24px}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}.skill h3{font: bold 18px monospace;text-transform:uppercase;border-bottom:1px solid #aaa69b;padding-bottom:12px}.skill p{font:14px/1.9 monospace;color:#4d4a43}
+.timeline{display:grid;grid-template-columns:1fr 2fr;gap:20px;padding:20px 0;border-top:1px solid #bdb9ad}.timeline strong{font: bold 16px monospace}.timeline span{font:14px/1.6 monospace;color:#4d4a43}
+.contact{background:var(--ink);color:var(--paper);padding:75px 6vw}.contact h2{font:bold clamp(48px,9vw,105px) Georgia,serif;line-height:.9;margin:0 0 30px;letter-spacing:-.06em}.contact p{font:15px/1.8 monospace}.contact a{border-bottom:1px solid var(--accent);color:var(--accent)}
+footer{padding:18px 6vw;font:11px monospace;display:flex;justify-content:space-between}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:700px){header{align-items:flex-start;gap:16px;flex-direction:column}nav{gap:14px;flex-wrap:wrap}.hero{grid-template-columns:1fr;padding-top:65px;min-height:auto}.portrait{height:250px;grid-row:1}.about-grid,.projects,.skills{grid-template-columns:1fr}.section{padding:60px 6vw}.timeline{grid-template-columns:1fr;gap:8px}.stamp{margin-top:20px}}
+
+/* Extra editorial motion */
+body{cursor:none}
+.cursor{position:fixed;left:0;top:0;width:14px;height:14px;border:1px solid var(--ink);border-radius:50%;pointer-events:none;z-index:99;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cursor.active{width:42px;height:42px;background:var(--accent);mix-blend-mode:multiply}
+.hero h1 span{clip-path:inset(0 0 100% 0);animation:headlineIn 1s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1 span:nth-child(2){animation-delay:.22s}
+@keyframes headlineIn{to{clip-path:inset(0 0 0 0)}}
+.hero .kicker{animation:fadeUp .8s .1s both}
+.hero p{animation:fadeUp .8s .65s both}
+.stamp{animation:stampIn .8s .85s both;transition:transform .25s,box-shadow .25s}
+.stamp:hover{transform:rotate(-3deg) translateY(-5px);box-shadow:11px 11px 0 var(--ink)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes stampIn{from{opacity:0;transform:rotate(-15deg) scale(.8)}to{opacity:1;transform:rotate(-7deg) scale(1)}}
+.portrait{overflow:hidden}
+.portrait:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 35%,rgba(255,255,255,.5),transparent 65%);transform:translateX(-120%);animation:photoSweep 3.5s 1s infinite}
+@keyframes photoSweep{to{transform:translateX(120%)}}
+.card{overflow:hidden}
+.card:after{content:"";position:absolute;inset:0;background:var(--accent);transform:translateY(102%);transition:transform .45s cubic-bezier(.2,.8,.2,1);z-index:-1}
+.card:hover:after{transform:translateY(0)}
+.section-title{position:relative;display:inline-block}
+.section-title:after{content:"";position:absolute;left:0;bottom:-8px;width:100%;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .8s}
+.visible .section-title:after{transform:scaleX(1)}
+.marquee{overflow:hidden;border-top:1px solid #bdb9ad;border-bottom:1px solid #bdb9ad;padding:15px 0;font:bold 13px monospace;letter-spacing:.15em;white-space:nowrap}
+.marquee span{display:inline-block;animation:marquee 22s linear infinite}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.contact h2{animation:contactFloat 5s ease-in-out infinite alternate}
+@keyframes contactFloat{to{transform:translateY(-8px)}}
+@media(pointer:coarse){body{cursor:auto}.cursor{display:none}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<header><div>PREETI NETRAKAR / PORTFOLIO</div><nav><a href="#about">About</a><a href="#work">Work</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav></header>
+<main>
+<section class="hero">
+ <div class="reveal">
+  <div class="kicker">ECE student · AI / Data / Design</div>
+  <h1><span>Preeti</span><span>Netrakar.</span></h1>
+  <p>Curious by nature. Analytical by mindset. Always learning, building and exploring how technology can solve real-world problems.</p>
+  <a class="stamp" href="#work">EXPLORE MY WORK ↘</a>
+ </div>
+ <div class="portrait reveal" aria-label="Portrait placeholder"><small>YOUR PHOTO CAN GO HERE</small></div>
+</section>
+<div class="marquee"><span>CURIOUS BY NATURE ✳ ANALYTICAL BY MINDSET ✳ ALWAYS LEARNING ✳ BUILDING WITH PURPOSE ✳ CURIOUS BY NATURE ✳ ANALYTICAL BY MINDSET ✳ ALWAYS LEARNING ✳ BUILDING WITH PURPOSE ✳ </span></div>\n<section class="section reveal" id="about">
+ <h2 class="section-title">A little about me ↗</h2>
+ <div class="about-grid"><p>I'm an Electronics and Communication Engineering student at KLE Technological University, interested in Artificial Intelligence, Machine Learning, Data Analytics and UI/UX Design. I enjoy learning new tools, working with data and turning ideas into practical projects.</p><p>My journey brings together engineering, creativity and communication. I'm looking for opportunities to grow, collaborate and contribute to meaningful technology projects.</p></div>
+</section>
+<section class="section reveal" id="work">
+ <h2 class="section-title">Selected work.</h2>
+ <div class="projects">
+  <article class="card"><span class="num">01 / MACHINE LEARNING</span><span class="arrow">↗</span><h3>SNR-Aware CNN–Transformer</h3><p>Modulation classification using the RadioML dataset, I/Q signal preprocessing and an SNR-aware weighted loss. Reported ROC-AUC: 0.9869.</p><span class="tag">Python</span><span class="tag">PyTorch</span><span class="tag">Deep Learning</span></article>
+  <article class="card"><span class="num">02 / DATA ANALYTICS</span><span class="arrow">↗</span><h3>Zepto Inventory Analysis</h3><p>Designed a PostgreSQL database, cleaned inventory data and analysed revenue trends, stock levels, discounts and product segments using SQL.</p><span class="tag">PostgreSQL</span><span class="tag">SQL</span><span class="tag">EDA</span></article>
+ </div>
+</section>
+<section class="section reveal" id="skills">
+ <h2 class="section-title">My toolkit.</h2>
+ <div class="skills">
+  <div class="skill"><h3>AI & Machine Learning</h3><p>Python · PyTorch · Machine Learning · Deep Learning · CNN · Transformers · Pandas · NumPy</p></div>
+  <div class="skill"><h3>Data Analytics</h3><p>SQL · PostgreSQL · Excel · Power BI · Data Cleaning · EDA · Data Visualization</p></div>
+  <div class="skill"><h3>UI / UX Design</h3><p>Figma · UI Design · UX Design · Wireframing · Prototyping · User Research</p></div>
+ </div>
+</section>
+<section class="section reveal">
+ <h2 class="section-title">Experience & learning.</h2>
+ <div class="timeline"><strong>Jan 2024 — Apr 2024</strong><span><b>Robotics & Automation Intern</b><br>Athreya Technologies Pvt. Ltd., Hubli</span></div>
+ <div class="timeline"><strong>Aug 2025 — Dec 2025</strong><span><b>Public Relations Lead</b><br>KLE-TECH SPACE CLUB, KLE Technological University</span></div>
+ <div class="timeline"><strong>2024 — 2027</strong><span><b>B.E. Electronics & Communication Engineering</b><br>KLE Technological University · CGPA 7.61 (through 6th semester)</span></div>
+</section>
+</main>
+<section class="contact reveal" id="contact">
+ <div class="kicker">Have an idea? Let's connect.</div><h2>MAKE<br>THINGS<br>MATTER.</h2>
+ <p>Preeti Netrakar · Sirsi, Karnataka<br><a href="mailto:preetinetrakar92@gmail.com">preetinetrakar92@gmail.com</a><br><a href="https://linkedin.com/in/preeti-netrakar-125859269" target="_blank" rel="noreferrer">LinkedIn</a> · <a href="https://github.com/preetinetrakar" target="_blank" rel="noreferrer">GitHub</a></p>
+</section>
+<footer><span>© 2026 PREETI NETRAKAR</span><span>BUILT WITH CURIOSITY ↗</span></footer>
+<script>
+const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body></html>
